@@ -1,0 +1,25 @@
+class Tuplu{
+private int v;
+private Tuplu obj;
+public Tuplu(int a,Tuplu b){v=a;obj=b;}
+public void set(int a,Tuplu b){v=a;obj=b;}
+public int getV(){return v;}
+public Tuplu getObj(){return obj;}
+}
+class newclass{
+	public static Tuplu apelare(Tuplu e,Tuplu f){
+		f.set(9,e.getObj());//y:9 2
+		f=e;//y-->x
+		f.getObj().set(6,null);//y:3 6 x:3 6
+	return new Tuplu(4,new Tuplu(5,null));
+	}
+	public static void main(String[] args){
+		Tuplu x=new Tuplu(3,new Tuplu(2,null));//x: 3 2
+		Tuplu y=new Tuplu(1,new Tuplu(-1,null));//y: 1 -1
+		Tuplu z=y;//z-->y
+		y=apelare(x,y);//y:4 5 ( x:3 6 z:9 6)
+		System.out.println(z.getV());//=>9
+		System.out.println(z.getObj().getV());//=>6
+		
+	}
+}
